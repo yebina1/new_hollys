@@ -1,0 +1,612 @@
+@charset "utf-8";
+
+:root {
+   font-size: 18px;
+}
+
+body {
+   min-width: 320px;
+}
+
+main {
+   position: relative;
+}
+
+.container {
+  width: 100%;
+}
+
+.container .top {
+   width: 100%;
+}
+
+.container .top .bg {
+   width: 100%;
+   height: 520px;
+   background: url(../img/bg/memu_page_bg.jpg) center/cover;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container .top .bg .tit {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #fff;
+}
+
+.container .top .bg .tit h3 {
+   font-size: 2.4rem;
+   line-height: 1.3;
+}
+
+.container .top .bg .tit p {
+   font-size: 1.5rem;
+}
+
+.container .top .main_tab .inner {
+   max-width: 1440px;
+   width: 100%;
+   padding-inline: 24px;
+   margin: 0 auto;
+}
+
+.container .top .main_tab {
+   width: 100%;
+   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.container .top .main_tab ul {
+   display: flex;
+   justify-content: center;
+}
+
+.container .top .main_tab ul li {
+   width: 240px;
+   height: 70px;
+}
+
+.container .top .main_tab ul li button {
+   width: 100%;
+   height: 100%;
+   font-size: 1.34rem;
+   font-weight: 500;
+   cursor: pointer;
+   position: relative;
+   color: rgba(0, 0, 0, 0.7);
+}
+
+.container .top .main_tab ul li button.on {
+   color: rgb(200, 101, 101);
+   border-bottom: 3px solid #FE7476;
+}
+
+.container .top .main_tab ul li button:hover {
+   color: rgb(200, 101, 101);
+}
+
+section {
+   width: 100%;
+}
+
+/* section 토글 */
+section[id^="memu_"] {
+  display: none;
+}
+
+section[id^="memu_"].menu_active {
+  display: block;
+}
+
+section>.inner {
+   max-width: 1280px;
+   width: 100%;
+   padding-inline: 24px;
+   margin: 0 auto;
+   padding-block: 120px;
+
+}
+
+section>.inner>h3 {
+   position: absolute;
+   left: -9999px;
+}
+
+section .info_con {
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+   padding-bottom: 80px;
+}
+
+/* 정렬/필터로 리스트 높이가 바뀔 때 스크롤 튐 방지 */
+section .info_con,
+section .info_con .memu_con,
+section .info_con .memu_con .menu_list {
+   overflow-anchor: none;
+}
+
+section .info_con .sub_tab {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+section .info_con .sub_tab li {
+   width: 100%;
+   height: 100%;
+}
+
+section .info_con .sub_tab li button {
+   width: 100%;
+   height: 62px;
+   font-size: 1.12rem;
+   background: rgba(245, 174, 174, 0.3);
+   cursor: pointer;
+}
+
+section .info_con .sub_tab li button.on {
+   background: rgba(200, 101, 101, 0.8);
+   color: #fff;
+   font-weight: 500;
+}
+
+section .info_con .sub_tab li button.on:hover {
+   background: rgba(200, 101, 101, 0.8);
+}
+
+section .info_con .sub_tab li button:hover {
+   background: rgba(245, 174, 174, 0.6);
+}
+
+section .info_con .filter {
+   display: flex;
+   flex-direction: column;
+   gap: 18px;
+   padding-top: 64px;
+}
+
+section .info_con .filter::after {
+   content: '';
+   padding-bottom: 2px;
+   border-bottom: 2px solid rgba(33, 39, 42, 0.2);
+}
+
+section .info_con .filter .result p {
+   color: #1a1a1a;
+
+}
+
+section .info_con .filter .result span:first-child {
+   padding-right: 8px;
+}
+
+section .info_con .filter .result em {
+   color: #F24242;
+   padding-right: 2px;
+   font-weight: 500;
+}
+
+section .info_con .filter .path {
+   display: flex;
+   color: #999;
+   font-size: 0.89rem;
+}
+
+section .info_con .filter .path i {
+   font-size: 1.3rem;
+}
+
+section .info_con .filter .path p:nth-of-type(3) {
+   color: #1a1a1a;
+   font-weight: 500;
+}
+
+section .info_con .sorting ul {
+   display: flex;
+   gap: 16px;
+   min-width: 340px;
+}
+
+section .info_con .sorting ul li {
+   position: relative;
+   color: rgba(0, 0, 0, .55);
+   padding-right: 17px;
+   border-right: 1px solid rgba(26, 26, 26, 0.5);
+}
+
+section .info_con .sorting ul li:last-child {
+   padding-right: 0;
+   border: 0;
+}
+
+section .info_con .sorting ul li button {
+   font-size: 0.95rem;
+   cursor: pointer;
+   color: rgba(26, 26, 26, 0.6);
+}
+
+
+section .info_con .sorting ul li:hover button {
+   color: #1a1a1a;
+}
+
+section .info_con .sorting ul li button.on {
+   padding-bottom: 2px;
+   border-bottom: 2px solid rgba(26, 26, 26, 0.8);
+   color: #1a1a1a;
+   font-weight: 500;
+}
+
+section .memu_con .menu_list {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(260px, 1fr));
+   gap: 50px 24px;
+}
+
+section .memu_con .menu_list li {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+}
+
+section .memu_con .menu_list li.new::before {
+   content: 'new';
+   width: 58px;
+   height: 32px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #FFC400;
+   font-size: 1rem;
+   font-weight: 500;
+   border-radius: 12px;
+   position: absolute;
+   left: 10px;
+   top: 10px;
+}
+
+section .memu_con .menu_list li.best::before {
+   content: 'best';
+   width: 58px;
+   height: 32px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(255, 99, 99, 0.8);
+   font-size: 1rem;
+   font-weight: 500;
+   border-radius: 12px;
+   position: absolute;
+   left: 10px;
+   top: 10px;
+}
+
+section .memu_con .menu_list li a {
+   position: relative;
+   padding-bottom: 100px;
+   display: block;
+}
+
+section .memu_con .menu_list li .img_box {
+   width: 100%;
+   aspect-ratio: 1 / 1;
+   position: relative;
+   z-index: 99;
+}
+
+section .memu_con .menu_list li .img_box img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+section .memu_con .menu_list li.ice_only .img_box::after {
+   content: 'ice only';
+   width: 50px;
+   height: 50px;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #7188FF;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: 500;
+   line-height: 0.9;
+   border-radius: 50px;
+   position: absolute;
+   right: 26%;
+   bottom: 10%;
+   z-index: 99;
+}
+
+section .memu_con .menu_list li.hot_only .img_box::after {
+   content: 'hot only';
+   width: 50px;
+   height: 50px;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #FF6767;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: 500;
+   line-height: 0.9;
+   border-radius: 50px;
+   position: absolute;
+   right: 80px;
+   bottom: 30px;
+   z-index: 99;
+}
+
+section .memu_con .menu_list li:hover .img_box img {
+   transform: scale(1.08);
+}
+
+section .memu_con .menu_list li .txt_box {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding: 100px 0 16px;
+   background: rgba(0, 0, 0, 0.05);
+   z-index: 98;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 12px;
+}
+
+section .memu_con .menu_list li:hover .txt_box {
+   background: rgba(200, 101, 101, 0.7);
+}
+
+section .memu_con .menu_list li .txt_box .name_con {
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+   text-align: center;
+   width: 100%;
+}
+
+section .memu_con .menu_list li:hover .txt_box .name,
+section .memu_con .menu_list li:hover .txt_box .price {
+   color: #fff;
+}
+
+section .memu_con .menu_list li:hover .txt_box .e_name {
+   color: #faf0f0;
+}
+
+section .memu_con .menu_list li .txt_box .name {
+   font-size: 1.12rem;
+   font-weight: 600;
+   color: #1a1a1a;
+   display: block;
+   max-width: 100%;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+section .memu_con .menu_list li .txt_box .e_name {
+   font-size: 0.93rem;
+   color: rgba(33, 39, 42, 0.6);
+   font-weight: 500;
+   display: block;
+   max-width: 100%;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+section .memu_con .menu_list li .txt_box .price {
+   font-size: 0.93rem;
+   color: #21272A;
+   font-weight: 500;
+   width: 100%;
+   display: block;
+   text-align: center;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+section .memu_con .menu_list li .txt_box .price span:not(:last-child) {
+   padding-right: 10px;
+}
+
+
+.pagenation {
+   padding-top: 80px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+}
+
+.pagenation button:disabled {
+   opacity: .35;
+   cursor: default;
+   pointer-events: none;
+}
+
+.pagenation .left button,
+.pagenation .right button {
+   font-size: 1.8rem;
+   margin-top: 9px;
+   cursor: pointer;
+}
+
+.pagenation .num_page {
+   display: flex;
+   gap: 8px;
+}
+
+.pagenation .num_page button {
+   font-size: 1rem;
+   width: 40px;
+   height: 40px;
+   justify-content: center;
+   align-items: center;
+   border: 2px solid rgba(0, 0, 0, 0.2);
+   border-radius: 30px;
+   cursor: pointer;
+}
+
+.pagenation .num_page button:hover {
+   background: rgba(0, 0, 0, 0.1);
+}
+
+.pagenation .num_page button.on {
+   color: #fff;
+   background: rgba(0, 0, 0, .7);
+}
+
+/* info_card */
+.info_card {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 99999;
+}
+
+.info_card.on {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.2);
+}
+
+.info_card .info_right,
+.info_card .info_left {
+  position: relative;
+  z-index: 1;
+}
+
+.info_card .info_left {
+  width: 450px;
+  height: 639px;
+  max-width: 40vw;
+  overflow: hidden;
+  border-radius: 16px 0 0 16px;
+  background: #F7F6F5;
+}
+
+.info_card .info_left img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info_card .info_right {
+  width: 540px;
+  max-width: 52vw;
+  padding: 50px 40px;
+  max-height: 78vh;
+  overflow: auto;
+  border-radius:  0 16px 16px 0;
+  background: #fff;
+  color: #333;
+}
+
+.info_card .info_right .close {
+   position: absolute;
+   right: 40px;
+   width: 40px;
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 30px;
+   border: 2px solid rgba(33, 39, 42, 0.2);
+}
+
+.info_card .info_right .close:hover {
+   background: rgba(33, 39, 42, 0.1);
+}
+
+.info_card .info_right .close i{
+      font-size: 24px;
+}
+
+.info_card .info_right .tit {
+   padding-bottom: 20px;
+   border-bottom: 3px solid rgba(230, 44, 44, 0.5);
+}
+
+.info_card .info_right .tit h4 {
+   font-size: 1.4rem;
+   line-height: 1.3;
+   padding-bottom: 8px;
+   color: #1a1a1a;
+   height: 41px;
+}
+
+.info_card .info_right .tit p {
+   font-size: 0.9rem;
+   font-weight: 500;
+   color: rgba(33, 39, 42, 0.8);
+}
+
+.info_card .info_right .memu_info {
+   padding: 23px 0 24px 0;
+   font-size: 1rem;
+   color: #21272A;
+   line-height: 1.4;
+   height: 123px;
+}
+
+.info_card .info_right .allergy {
+   font-size: 0.9rem;
+   padding-top: 20px;
+}
+
+.info_card .info_right .allergy.hidden_text {
+  opacity: 0;
+}
+
+.info_card .nutrition p{
+   font-size: 0.89rem;
+}
+
+.info_card .nutrition .info_table {
+   width: 100%;
+   padding-top: 16px;
+   table-layout: fixed;
+}
+
+.info_card .nutrition .info_table tr {
+   font-size: 0.89rem;
+   display: flex;
+   padding-block: 8px;
+   border-top: 1px solid rgba(33, 39, 42, 0.3);
+}
+
+.info_card .nutrition .info_table tbody tr:last-child {
+   border-bottom: 1px solid rgba(33, 39, 42, 0.3);
+}
+
+.info_card .nutrition .info_table th {
+   font-weight: 600;
+}
+
+.info_card .nutrition .info_table th, td {
+  width: 33.33%;
+  text-align: center;
+}
+.info_card .nutrition .info_table td {
+   color: #666;
+}
