@@ -660,3 +660,12 @@ footer .f_right .bottom_box span::after {
    padding-right: 16px;
    border-right: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+/* ── 비활성화 nav 항목 ── */
+.nav_disabled,
+.nav_disabled > a,
+.nav_disabled > button {
+   pointer-events: none !important;
+   opacity: 0.38;
+   cursor: default !important;
+}
